@@ -1,0 +1,53 @@
+<html> 
+<head>
+    <title>Notion Tomorrow's Date Widget</title> 
+    <style>
+      #tomorrowsdatewidget {
+        font-family: sans-serif;
+        font-size: 18pt;
+        color: #555555;
+        padding: 5px;
+        justify-content: left;
+        line-height: 1.5;
+        height:85%;
+        font-weight: bold;
+      }
+
+      .date{
+          font-size:12pt;
+          font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+    <div id="tomorrowsdatewidget"></div>
+</body>
+
+<script>
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var hrs = tomorrow.getHours();
+    var dayOfWeek = weekday[tomorrow.getDay()];
+    var date = `${dayOfWeek}, ${monthNames[tomorrow.getMonth()]} ${tomorrow.getDate()}, ${tomorrow.getFullYear()}`;
+
+    document.getElementById('tomorrowsdatewidget').innerHTML = `
+        <div class="container">
+          <div>Tomorrow</div>
+          <div class="date"> ${date}</div>
+        <div/>
+    `;
+</script> 
+</html>
